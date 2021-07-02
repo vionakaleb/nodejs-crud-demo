@@ -9,8 +9,8 @@ update.addEventListener('click', _ => {
     method: 'put',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Darth Vadar',
-      quote: 'I find your lack of faith disturbing.'
+      name: 'Ted Mosby',
+      quote: `You can ask the universe for signs all you want.`
     })
   })
     .then(res => {
@@ -26,7 +26,7 @@ deleteButton.addEventListener('click', _ => {
     method: 'delete',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Darth Vadar'
+      name: 'Ted Mosby'
     })
   })
     .then(res => {
@@ -34,7 +34,7 @@ deleteButton.addEventListener('click', _ => {
     })
     .then(response => {
       if (response === 'No quote to delete') {
-        messageDiv.textContent = 'No Darth Vadar quote to delete'
+        messageDiv.textContent = 'No Ted Mosby quote to delete'
       } else {
         window.location.reload(true)
       }

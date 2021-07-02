@@ -16,7 +16,7 @@ const connectionString = process.env.DB_URL
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
-    const db = client.db('star-wars-quotes')
+    const db = client.db('starwarsDB')
     const quotesCollection = db.collection('quotes')
 
     // ========================
@@ -69,9 +69,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       )
         .then(result => {
           if (result.deletedCount === 0) {
-            return res.json('No quote to delete')
+            return res.json('No Ted Mosby quote to delete')
           }
-          res.json('Deleted Darth Vadar\'s quote')
+          res.json('Deleted Ted Mosby quote')
         })
         .catch(error => console.error(error))
     })
@@ -80,7 +80,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     // Listen
     // ========================
     const isProduction = process.env.NODE_ENV === 'production'
-    const port = isProduction ? 7500 : 3000
+    const port = isProduction ? 7500 : 5000
     app.listen(port, function () {
       console.log(`listening on ${port}`)
     })
